@@ -10,15 +10,17 @@ someLabel = 0
 def acMain(ac_version):
     global appWindow, someLabel
     appWindow = ac.newApp("Rpm Viewer")
-    ac.setSize(appWindow, 300, 60)
+    ac.setTitle(appWindow, "")
+    ac.setIconPosition(appWindow, 0, -10000)
+    ac.setSize(appWindow, 100, 50)
     ac.drawBorder(appWindow, 0)
-    ac.setBackgroundOpacity(appWindow, 0)
 
     someLabel = ac.addLabel(appWindow, "")
-    ac.setPosition(someLabel, 15, 20)
+    ac.setPosition(someLabel, 10, 5)
 
 def acUpdate(delta_t):
     global someLabel
+    ac.setBackgroundOpacity(appWindow, 0)
     rpm = ac.getCarState(0, acsys.CS.RPM)
-    ac.setText(someLabel, str(rpm))
+    ac.setText(someLabel, str(round(rpm)))
 

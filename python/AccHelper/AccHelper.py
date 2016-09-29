@@ -72,8 +72,9 @@ def acUpdate(delta_t):
     ac.setBackgroundOpacity(rpm_app, 0)
 
     rpm = ac.getCarState(0, acsys.CS.RPM)
+    boost = ac.getCarState(0, acsys.CS.TurboBoost)
     fuel = simInfo.physics.fuel
-    ac.setText(rpm_label, str(round(rpm)) + "\n" + str(round(fuel, 1)))
+    ac.setText(rpm_label, str(round(rpm)) + "\n" + str(round(boost, 3)) + "\n" + str(round(fuel, 1)))
 
     value_fl = ac.getCarState(0, acsys.CS.ToeInDeg, acsys.WHEELS.FL)
     value_fr = ac.getCarState(0, acsys.CS.ToeInDeg, acsys.WHEELS.FR)
